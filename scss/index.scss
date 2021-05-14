@@ -1,0 +1,208 @@
+@mixin for-phone-only {
+	@media (max-width:767.98px) { @content;}
+}
+
+@mixin for-tablet-only {
+    @media (max-width: 768px) and (max-width: 1199.98px) { @content;}
+}
+
+@mixin for-desktop-only {
+    @media (min-width: 1200px) { @content;}
+    
+}
+
+@function calculateRem($size){
+    @return $size / 16px * 1rem;
+
+}
+
+@mixin fontSize($size) {
+    font-size: $size;
+    font-size: calculateRem($size) ;
+    
+}
+
+
+*{
+	box-sizing: border-box;
+ }
+
+body{
+	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	@include fontSize(14px);
+	color: rgb(32, 30, 30);
+	background-color: rgb(228, 169, 194);
+}
+
+header{
+	background-color: palevioletred;
+	height: 4em;
+	color: rgb(17, 12, 12);
+	margin-bottom: 1em;
+}
+
+header h1{
+	font-size: 2em;
+	display:inline-block;
+	vertical-align:	middle;
+}
+header h2{
+	font-size: 2em;
+	display:inline-block;
+	vertical-align:	middle;
+}
+
+header .container:before{
+	content: '';
+	display:inline-block;
+	height: 100%;
+	vertical-align:	middle;
+}
+
+.container{
+	width: 60%;
+	height: 100%;
+	margin: 0 auto;
+
+	@include for-phone-only {
+		width: 90%;
+		
+	}
+}
+
+section{
+	margin: 2em 0;
+	overflow: hidden;
+
+	
+}
+
+section h2{
+	font-size: 3em;
+	display: block;
+	padding-bottom: .5em;
+	border-bottom: 1px solid rgb(24, 22, 22);
+	margin-bottom: .5em;
+}
+
+table{
+	width: 100%;
+	margin-bottom : .5em;
+    table-layout: fixed;
+
+	@include for-phone-only {
+		width:90%;
+	}
+
+}
+
+td, th {
+	padding: .7em;
+	margin: 0;
+	border: 1px solid rgb(24, 20, 20);
+	text-align: center;
+}
+
+th{
+	font-weight: bold;
+	background-color:palevioletred;
+}
+
+label{
+	color:rgb(24, 21, 21);
+	display: block;
+	margin-bottom: .2em;
+}
+/*pra corrigir um erro no css pq o input nome n tava ocuoando a pág inteira*/
+#nomee {
+	
+	display:block;
+	width: 100%;
+}
+.campo {
+	
+	margin: 0;
+	padding-bottom: 1em;
+	width: 100%;
+	border: 1px solid rgb(104, 32, 104);
+	padding: .7em;
+	width: 100%;
+	
+}
+
+.campo-medio{
+	display: inline-block;
+	padding-right: .5em;
+}
+
+.grupo{
+	width: 32%;
+	display: inline-block;
+	padding: 10px 0px;
+	
+}
+
+button{
+	padding: .5em 2em;
+	border: 0;
+	border-bottom: 3px solid;
+	font-size: 1.2em;
+	cursor: pointer;
+	margin: 0;
+	margin-top: -3px;
+	color: #fff;
+	background-color:#0c8cd3;
+	border-color: #04324c;
+	width: 20%;
+    display: block;
+    clear: both;
+    margin: 10px 0px;
+	
+
+}
+
+button:active{
+	margin-top:0px;
+	border: 0;
+}
+
+button[disabled=disabled], button:disabled {
+    background-color: gray;
+	border-color: darkgray;
+
+}
+
+.adicionar-paciente{
+    margin-top: 30px;
+}
+
+.campo-invalido{
+	border: 1px solid red;
+}
+.paciente-invalido {
+	color :red
+}
+
+#mensagens-erro {
+	color: red;
+}
+
+.fadeOut {
+	opacity: 0;
+	transition: 1.5s;
+}
+#filtro-paciente {
+	width: 220px;
+	height: 35px;
+	font-size: 20px;
+	display: block;
+	margin-top: 10px;
+}
+#label-filtro {
+	font-size: 20px;
+	display: block;
+	
+}
+.invisivel {
+	display: none;
+}
